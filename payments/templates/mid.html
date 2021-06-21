@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <style>
+       .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("static/images/white.jpg") ;
+            
+        }
+        
+        body {
+            background-image: url("static/images/study.jpg");
+            background-repeat: no-repeat;
+            /* background-size: cover; */
+            height: 100%; 
+            width: 100%; 
+            background-color: #cccccc;
+            background-position: center;
+  
+        }
+        
+
+    </style>
+</head>
+<div class="center">
+
+    <form action="success" method="POST" class='center'>
+        {% csrf_token %}
+        <script src="https://checkout.razorpay.com/v1/checkout.js" 
+        data-key="rzp_test_7fI3qA1r1esYgj"
+        data-amount="{{payment.amount}}" 
+        data-currency="INR" 
+        data-order_id="{{payment.id}}" 
+        data-buttontext="Pay with Razorpay"
+        data-name="Sanya Nanda" 
+        data-description="Education for children (Demo)"
+        data-prefill.name="bank" data-prefill.email="bank@education.com"
+        data-theme.color="#54f3de">
+    </script>
+    </form>
+    </div>
+    {% endblock %}
