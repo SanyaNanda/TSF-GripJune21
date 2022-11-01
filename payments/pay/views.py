@@ -5,7 +5,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.template import Context
 
 global amount
-amount=200
+amount=2000
 
 def home(request):
     if request.POST:
